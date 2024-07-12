@@ -24,6 +24,27 @@ resource "aws_instance" "this" {
     vpc_security_group_ids = [aws_security_group.ec2.id]
 }
 
+--resource "aws_iam_policy" "ec2" {
+    description = "IAM policy for EC2"
+    name = "ec2-policy"
+    policy = jsonencode({
+        Version = "2012-10-17"
+        Statement = [
+          {
+            Action = [
+              "s3:GetObject",
+              "s3:ListBucket"
+            ]
+            Resource = [
+              "arn:aws:s3:::${var.s3_bucket_name}",
+              "arn:aws:s3:::${var.s3_bucket_name}/*"
+            ]
+            Effect = "Allow"
+          }
+        ]
+      })
+}
+
 output "instance_id" {
     value = aws_instance.this.id
 }
