@@ -1,75 +1,54 @@
 # ex_sre_vois
 IoT- Site Reliability Engineer Technical exercise Repository
 
-Project Structure
-Your Terraform project structure should look like this:
- ```sh
-aws-terraform-infra/
-│
-├── modules/
-│   ├── vpc/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-│   ├── ec2/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-│   ├── rds/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-│   ├── s3/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-│   ├── lambda/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-│   ├── api_gateway/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-│
+Terraform AWS Infrastructure Setup
+This project provides a Terraform configuration to set up an AWS infrastructure including VPC, EC2 instances, and RDS instances. 
+
+Prerequisites:
+--------------
+Terraform installed
+AWS account with necessary permissions
+AWS CLI configured with your credentials
+
+Project Structure:
+-----------------
+```sh
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
-├── providers.tf
-├── terraform.tfvars
+├── modules
+│   ├── vpc
+│   │   └── main.tf
+│   ├── ec2
+│   │   └── main.tf
+│   └── rds
+│       └── main.tf
 └── README.md
- ```
-# AWS Terraform Infrastructure
+```
+Setup:
+-----
+Step 1: Initialize Terraform
+Run the following command to initialize the Terraform configuration. This command downloads the necessary providers and prepares the working directory.
 
-## Setup
+terraform init
 
-1. Ensure you have Terraform installed. You can download it from [here](https://www.terraform.io/downloads.html).
+Step 2: Review and Apply the Configuration
+Run the following command to see what changes will be made to your infrastructure.
 
-2. Configure your AWS credentials.
+terraform plan
+If the plan looks good, apply the changes to set up the infrastructure.
 
-3. Initialize Terraform:
-    ```sh
-    terraform init
-    ```
+terraform apply
+You will be prompted to confirm before proceeding. Type yes and press Enter.
 
-4. Review the plan:
-    ```sh
-    terraform plan
-    ```
+Step 3: Access the Outputs
+After the apply process is complete, you can see the outputs by running:
 
-5. Apply the configuration:
-    ```sh
-    terraform apply
-    ```
+terraform output
+This will display the VPC ID, public and private subnet IDs, EC2 instance ID, and RDS instance endpoint.
 
-## Teardown
+Step 4: Teardown
+To destroy the infrastructure and clean up all resources created by Terraform, run the following command:
 
-1. To destroy the infrastructure:
-    ```sh
-    terraform destroy
-    ```
-
-## Notes
-
-- Ensure that your AWS user has the necessary permissions to create and manage the resources.
-- Modify `terraform.tfvars` to customize variables for your environment.
+terraform destroy
+You will be prompted to confirm before proceeding. Type yes and press Enter.
