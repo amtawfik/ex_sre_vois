@@ -13,8 +13,8 @@ resource "aws_db_instance" "dbinst" {
     vpc_security_group_ids = [var.vpc_security_group_id]
 }
 
-output "db_inst_name" {
-    value = aws_db_instance.dbinst.endpoint
+output "db_inst_arn" {
+    value = aws_db_instance.dbinst.arn
 }
 output "db_instance_endpoint" {
     value = aws_db_instance.dbinst.endpoint
