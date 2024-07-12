@@ -16,8 +16,8 @@ resource "aws_security_group" "ec2" {
     vpc_id = var.vpc_id
 }
 
-resource "aws_instance" "this" {
-    ami = "ami-abc123"
+resource "aws_instance" "myinst" {
+    ami = "ami-0aff18ec83b712f05"
     instance_type = var.ec2_instance_type
     key_name = "my-key-pair"
     subnet_id = var.subnet_id
@@ -25,7 +25,7 @@ resource "aws_instance" "this" {
 }
 
 output "instance_id" {
-    value = aws_instance.this.id
+    value = aws_instance.myinst.id
 }
 
 output "security_group_id" {
