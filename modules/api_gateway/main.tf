@@ -1,11 +1,6 @@
---resource "aws_api_gateway" "this" {
+resource "aws_api_gateway" "this" {
     description = "API Gateway"
     name = var.api_gateway_name
-}
-
-resource "aws_api_gateway_rest_api" "api" {
-  name        = "api_gateway"
-  description = "API Gateway for Lambda"
 }
 
 resource "aws_api_gateway_resource" "this" {
