@@ -22,5 +22,5 @@ resource "aws_api_gateway_integration" "this" {
     resource_id = aws_api_gateway_resource.apigw-res.id
     rest_api_id = aws_api_gateway.apigw.id
     type = "LAMBDA"
-    uri = "arn:aws:apigateway:${aws_region}:lambda:path/2015-03-31/functions/${aws_lambda_function.this.arn}/invocations"
+    uri = "arn:aws:apigateway:${aws_region}:lambda:path/2015-03-31/functions/${module.lambda.lambda-arn}/invocations"
 }
