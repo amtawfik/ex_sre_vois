@@ -17,13 +17,18 @@ Project Structure:
 ├── variables.tf
 ├── outputs.tf
 ├── modules
-│   ├── vpc
-│   │   └── main.tf
-│   ├── ec2
-│   │   └── main.tf
-│   └── rds
-│       └── main.tf
-└── README.md
+│ ├── vpc
+│ │ └── main.tf
+│ ├── ec2
+│ │ └── main.tf
+│ ├── rds
+│ │ └── main.tf
+│ ├── api_gateway
+│ │ └── main.tf
+│ ├── lambda
+│ │ └── main.tf
+│ └── s3
+│ └── main.tf
 ```
 Setup:
 -----
