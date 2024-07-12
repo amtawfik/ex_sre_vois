@@ -1,44 +1,54 @@
-variable "aws_region" {
-  description = "The AWS region to deploy in"
-  default     = "us-west-2"
+variable "rds_username" {
+    default = "mydbuser"
+    type = string
 }
 
-variable "vpc_cidr_block" {
-  description = "The CIDR block for the VPC"
-  default     = "10.0.0.0/16"
-}
-
-variable "public_subnet_cidr" {
-  description = "The CIDR block for the public subnet"
-  default     = "10.0.1.0/24"
+variable "rds_password" {
+    default = "1234"
+    type = string
 }
 
 variable "private_subnet_cidr" {
-  description = "The CIDR block for the private subnet"
-  default     = "10.0.2.0/24"
+    default = "10.0.2.0/24"
+    type = string
 }
 
-variable "ec2_ami_id" {
-  description = "AMI ID for the EC2 instance"
+variable "rds_instance_type" {
+    default = "db.t2.micro"
+    type = string
+}
+
+variable "vpc_cidr" {
+    default = "10.0.0.0/16"
+    type = string
 }
 
 variable "ec2_instance_type" {
-  description = "Instance type for the EC2 instance"
-  default     = "t2.micro"
+    default = "t2.micro"
+    type = string
 }
 
-variable "rds_db_name" {
-  description = "Database name for the RDS instance"
+variable "api_gateway_name" {
+    default = "my-api-gateway"
+    type = string
 }
 
-variable "rds_db_username" {
-  description = "Database username for the RDS instance"
+variable "domain_name" {
+    default = "example.com"
+    type = string
 }
 
-variable "rds_db_password" {
-  description = "Database password for the RDS instance"
+variable "lambda_function_name" {
+    default = "my-lambda-function"
+    type = string
+}
+
+variable "public_subnet_cidr" {
+    default = "10.0.1.0/24"
+    type = string
 }
 
 variable "s3_bucket_name" {
-  description = "Name of the S3 bucket"
+    default = "my-s3-bucket-sre-vois-amtawfik"
+    type = string
 }
