@@ -31,6 +31,7 @@ Step 1: Initialize Terraform
 Run the following command to initialize the Terraform configuration. This command downloads the necessary providers and prepares the working directory.
 
 terraform init
+
 Step 2: Review and Apply the Configuration
 Run the following command to see what changes will be made to your infrastructure.
 
