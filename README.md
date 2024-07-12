@@ -12,7 +12,7 @@ AWS CLI configured with your credentials
 
 Project Structure:
 -----------------
-
+    ```sh
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
@@ -24,7 +24,7 @@ Project Structure:
 │   └── rds
 │       └── main.tf
 └── README.md
-
+    ```
 Setup:
 -----
 Step 1: Initialize Terraform
