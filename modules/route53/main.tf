@@ -1,27 +1,18 @@
-resource "aws_vpc" "myvpc" {
-    cidr_block = var.vpc_cidr
+resource "aws_route53_zone" "r53-zone" {
+    name = var.domain_name
 }
 
-resource "aws_subnet" "public" {
-    availability_zone = "us-west-2a"
-    cidr_block = var.public_subnet_cidr
-    vpc_id = aws_vpc.myvpc.id
+resource "aws_route53_record" "this" {
+    alias {
+        evaluate_target_health = true
+        name                   = var.api_gateway_endpoint
+        zone_id                = var.api_gateway_zone_id
+    }
+    name    = var.domain_name
+    type    = "A"
+    zone_id = aws_route53_zone.r53-zone.zone_id
 }
 
-resource "aws_subnet" "private" {
-    availability_zone = "us-west-2a"
-    cidr_block = var.private_subnet_cidr
-    vpc_id = aws_vpc.myvpc.id
-}
-
-output "vpc_id" {
-    value = aws_vpc.myvpc.id
-}
-
-output "public_subnet_id" {
-    value = aws_subnet.public.id
-}
-
-output "private_subnet_id" {
-    value = aws_subnet.private.id
+output "zone_id" {
+    value = aws_route53_zone.r53-zone.zone_id
 }
