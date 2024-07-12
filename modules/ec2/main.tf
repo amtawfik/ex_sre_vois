@@ -24,7 +24,7 @@ resource "aws_instance" "this" {
     vpc_security_group_ids = [aws_security_group.ec2.id]
 }
 
---resource "aws_iam_policy" "ec2" {
+resource "aws_iam_policy" "ec2" {
     description = "IAM policy for EC2"
     name = "ec2-policy"
     policy = jsonencode({
