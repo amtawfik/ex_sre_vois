@@ -1,8 +1,11 @@
-resource "aws_db_subnet_group" "this" {
+--resource "aws_db_subnet_group" "this" {
     description = "RDS subnet group"
     name = "rds-subnet-group"
-    subnet_ids = [var.subnet_id]
+    subnet_ids = [
+        aws_subnet.private.id,
+    ]
 }
+
 
 resource "aws_db_instance" "this" {
     db_subnet_group_name = aws_db_subnet_group.this.name
