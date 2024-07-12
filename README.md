@@ -3,7 +3,7 @@ IoT- Site Reliability Engineer Technical exercise Repository
 
 Project Structure
 Your Terraform project structure should look like this:
-
+ ```sh
 aws-terraform-infra/
 │
 ├── modules/
@@ -38,7 +38,7 @@ aws-terraform-infra/
 ├── providers.tf
 ├── terraform.tfvars
 └── README.md
-
+ ```
 # AWS Terraform Infrastructure
 
 ## Setup
