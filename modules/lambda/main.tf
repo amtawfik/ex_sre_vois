@@ -27,7 +27,7 @@ resource "aws_iam_policy" "lambda" {
               "rds:DescribeDBClusters"
             ]
             Resource = [
-              aws_db_instance.this.arn
+              module.rds.db_inst_arn
             ]
             Effect = "Allow"
           }
