@@ -20,3 +20,4 @@ output "rds_instance_endpoint" {
 
 output "route53_zone_id" {
     value = module.route53.zone_id
+}
