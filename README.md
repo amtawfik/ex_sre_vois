@@ -29,6 +29,8 @@ Project Structure:
 │ │ └── main.tf
 │ └── s3
 │ └── main.tf
+└── route53
+│ └── main.tf
 ```
 Setup:
 -----
