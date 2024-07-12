@@ -1,3 +1,12 @@
+terraform {
+    required_providers {
+        aws = {
+            source = "hashicorp/aws"
+            version = "5.58.0"
+        }
+    }
+}
+
 provider "aws" {
     region = "us-west-2"
 }
@@ -23,4 +32,20 @@ module "rds" {
     rds_instance_type = var.rds_instance_type
     subnet_id = module.vpc.private_subnet_id
     vpc_security_group_id = module.ec2.security_group_id
+}
+
+module "api_gateway" {
+    source = "./modules/api_gateway"
+    api_gateway_name = var.api_gateway_name
+    domain_name = var.domain_name
+}
+
+module "lambda" {
+    source = "./modules/lambda"
+    lambda_function_name = var.lambda_function_name
+}
+
+module "s3" {
+    source = "./modules/s3"
+    s3_bucket_name = var.s3_bucket_name
 }
