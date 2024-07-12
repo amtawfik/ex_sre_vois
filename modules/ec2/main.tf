@@ -1,19 +1,33 @@
-resource "aws_instance" "web" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-  subnet_id     = var.private_subnet_id
-  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
-
-  vpc_security_group_ids = [
-    var.security_group_id,
-  ]
-
-  tags = {
-    Name = "WebServer"
-  }
+resource "aws_security_group" "ec2" {
+    description = "Security group for EC2"
+    ingress {
+        cidr_blocks = ["0.0.0.0/0"]
+        from_port = 22
+        protocol = "tcp"
+        to_port = 22
+    }
+    ingress {
+        cidr_blocks = ["0.0.0.0/0"]
+        from_port = 80
+        protocol = "tcp"
+        to_port = 80
+    }
+    name = "ec2-sg"
+    vpc_id = var.vpc_id
 }
 
-resource "aws_iam_instance_profile" "ec2_profile" {
-  name = "ec2_profile"
-  role = var.iam_role_name
+resource "aws_instance" "this" {
+    ami = "ami-0aff18ec83b712f05"
+    instance_type = var.ec2_instance_type
+    key_name = "my-key-pair"
+    subnet_id = var.subnet_id
+    vpc_security_group_ids = [aws_security_group.ec2.id]
+}
+
+output "instance_id" {
+    value = aws_instance.this.id
+}
+
+output "security_group_id" {
+    value = aws_security_group.ec2.id
 }
