@@ -47,3 +47,6 @@ resource "aws_lambda_function" "this" {
     role = aws_iam_role.lambda.arn
     runtime = "nodejs14.x"
 }
+output "lambda-arn" {
+    value = aws_lambda_function.this.arn
+}
