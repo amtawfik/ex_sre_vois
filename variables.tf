@@ -4,7 +4,7 @@ variable "rds_username" {
 }
 
 variable "rds_password" {
-    default = "mypassword"
+    default = "123"
     type = string
 }
 
@@ -49,6 +49,6 @@ variable "public_subnet_cidr" {
 }
 
 variable "s3_bucket_name" {
-    default = "my-s3-bucket"
+    default = "my-s3-bucket-amtawfik-sre"
     type = string
 }
