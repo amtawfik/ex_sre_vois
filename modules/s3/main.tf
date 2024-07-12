@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "this" {
+resource "aws_s3_bucket" "mybucket" {
     acl = "private"
     bucket = var.s3_bucket_name
     server_side_encryption_configuration {
